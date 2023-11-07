@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: montudor/action-zip@a8e75c9faefcd80fac3baf53ef40b9b119d5b702 #v1
-        with:
-          args: zip -qq -r styles_roland_em2000.zip styles
+      - run: zip -qq -r styles_roland_em2000.zip styles
       - run: sha256sum styles_roland_em2000.zip > styles_roland_em2000.shasum
       - name: Release
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
